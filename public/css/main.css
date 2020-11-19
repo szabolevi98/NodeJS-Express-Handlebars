@@ -1,0 +1,80 @@
+body {
+    background-image: linear-gradient(to right, rgb(33, 92, 202),deepskyblue,rgb(33, 92, 202));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color:white;
+    text-align: justify;
+}
+
+footer {
+    width: 626px;
+    margin: auto;
+    text-align: center;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0);
+}
+
+h1, h2 {
+    text-shadow: 3px 3px 5px rgba(7, 31, 99, 0.75);
+}
+
+#tartalom {
+    background-color: rgba(33, 92, 202, 0.623);
+    box-shadow: 8px 8px 5px 0px rgba(7, 31, 99, 0.75);
+    margin: auto;
+    margin-top: 15px;
+    width: 576px;
+    padding: 25px;
+    padding-top: 5px;
+  	padding-bottom: 8px;
+}
+
+#navUl {
+    list-style-type: none;
+    width: 626px;
+    margin: auto;
+    margin-top: 50px;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    box-shadow: 8px 8px 5px 0px rgba(7, 31, 99, 0.75);
+}
+  
+#navLi {
+    float: left;
+}
+  
+#navLi a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+#navLi a:hover:not(.active) {
+    background-color:  rgba(33, 92, 202);
+}
+
+#navLi #active:hover {
+  background-color:  rgb(36, 108, 241);
+}
+  
+#active {
+    background-color: rgba(33, 92, 202);
+  }
+
+a:link {
+    color: white;
+}
+  
+a:visited {
+    color: white;
+}
+  
+a:hover {
+    color: deepskyblue;
+}
+  
+a:active {
+    color: deepskyblue;
+}

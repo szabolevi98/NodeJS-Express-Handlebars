@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    {{#if style}}
+        <link rel="stylesheet" href="css/{{style}}">
+    {{/if}}
+    {{#if title}}
+        <title>{{title}}</title>
+    {{else}}
+        <title>Title</title>
+    {{/if}}
+</head>
+<body>
+    <ul id="navUl">
+        <li id="navLi"><a href="/">Kezdőlap</a></li>
+        <li id="navLi"><a href="/work">Feladat</a></li>
+        <li id="navLi"><a href="/contact">Kapcsolat</a></li>
+        <li id="navLi" style="float:right"><a id="active" href="/about">Rólunk</a></li>
+    </ul>
+    <div id="tartalom">
+        {{{body}}}
+    </div>
+    <footer>
+        <p class="copyright">© {{copyRight.name}} {{copyRight.year}}</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<h2>Feladat</h2>
+<p>Elemek kiiratása átlósan.</p><br />
+<p>Első változat:</p>
+<table>
+    {{#each lists as |xValue xKey|}}
+        {{#ifEquals xKey 0}}
+            <tr>
+            {{#each xValue/items as |yValue yKey|}}
+                <td>{{yValue}}</td>
+            {{/each}}
+            </tr>
+        {{/ifEquals}}
+        {{#ifEquals xKey 1}}
+            <tr>
+            {{#each xValue/elements as |zValue zKey|}}
+                <td>{{zValue}}</td>
+            {{/each}}
+            </tr>
+        {{/ifEquals}}
+    {{/each}}
+</table>
+<br />
+<p>Második változat:</p>
+<table>
+    {{#each lists as |xValue xKey|}}
+        {{#ifEquals xKey 0}}
+            <tr>
+            {{#each xValue/elements as |yValue yKey|}}
+                <td>{{yValue}}</td>
+            {{/each}}
+            </tr>
+        {{/ifEquals}}
+        {{#ifEquals xKey 1}}
+            <tr>
+            {{#each xValue/items as |zValue zKey|}}
+                <td>{{zValue}}</td>
+            {{/each}}
+            </tr>
+        {{/ifEquals}}
+    {{/each}}
+</table>
+<br />
