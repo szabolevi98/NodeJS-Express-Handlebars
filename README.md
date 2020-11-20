@@ -1,2 +1,2 @@
-# NodeJS-Express-Handlebars
-Demo: https://nodejs-express-handlebars.herokuapp.com
+# NodeJS Express-Handlebars
+Live demo: https://nodejs-express-handlebars.herokuapp.com
