@@ -31,7 +31,8 @@ app.get('/', (req, res) => {
         copyRight: {
             name: companyName,
             year: currentYear
-        }
+        },
+        active: 1
     });
 });
 
@@ -45,6 +46,7 @@ app.get('/work', (req, res) => {
             name: companyName,
             year: currentYear
         },
+        active: 2,
         lists: [
             {
                 items: [ 'item1', 'item2', 'item3' ],
@@ -67,7 +69,8 @@ app.get('/contact', (req, res) => {
         copyRight: {
             name: companyName,
             year: currentYear
-        }
+        },
+        active: 3
     });
 });
 

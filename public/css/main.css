@@ -21,7 +21,7 @@ h1, h2 {
     background-color: rgba(33, 92, 202, 0.623);
     box-shadow: 8px 8px 5px 0px rgba(7, 31, 99, 0.75);
     margin: auto;
-    margin-top: 15px;
+    margin-top: 16px;
     width: 576px;
     padding: 25px;
     padding-top: 5px;
@@ -59,8 +59,12 @@ h1, h2 {
   background-color:  rgb(36, 108, 241);
 }
   
-.active {
+.highlited {
     background-color: rgba(33, 92, 202);
+}
+
+.active {
+    background-color: rgb(73, 73, 73);
 }
 
 .spoilerbutton {

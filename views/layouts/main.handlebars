@@ -4,21 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
-    {{#if style}}
-        <link rel="stylesheet" href="css/{{style}}">
-    {{/if}}
-    {{#if title}}
-        <title>{{title}}</title>
-    {{else}}
-        <title>Title</title>
-    {{/if}}
+    {{#if style}}<link rel="stylesheet" href="css/{{style}}">{{/if}}
+    <title>{{#if title}}{{title}}{{else}}Example{{/if}}</title>
 </head>
 <body>
     <ul class="navUl">
-        <li class="navLi"><a href="/">Kezdőlap</a></li>
-        <li class="navLi"><a href="/work">Feladat</a></li>
-        <li class="navLi"><a href="/contact">Kapcsolat</a></li>
-        <li class="navLi" style="float:right"><a class="active" href="/about">Rólunk</a></li>
+        <li class="navLi"><a {{#ifEquals active 1}}class="active"{{/ifEquals}} href="/">Kezdőlap</a></li>
+        <li class="navLi"><a {{#ifEquals active 2}}class="active"{{/ifEquals}} href="/work">Feladat</a></li>
+        <li class="navLi"><a {{#ifEquals active 3}}class="active"{{/ifEquals}} href="/contact">Kapcsolat</a></li>
+        <li class="navLi" style="float:right"><a class="highlited" href="/about">Rólunk</a></li>
     </ul>
     <div id="tartalom">
         <h2>{{name}}</h2>
