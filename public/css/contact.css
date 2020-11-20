@@ -13,7 +13,7 @@ input[type=submit] {
     background-color:rgb(30, 81, 177);
     color: white;
     padding: 14px 20px;
-    margin: 8px 0;
+    margin: 8px 0 0 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -23,7 +23,11 @@ input[type=submit]:hover {
     background-color:rgb(24, 69, 153);
 }
 
+label {
+    font-weight: bold;
+}
+
 textarea {
-    resize: none;
     max-width: 100%;
+    min-width: 100%;
 }

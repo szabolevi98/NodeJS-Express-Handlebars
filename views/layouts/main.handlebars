@@ -8,18 +8,23 @@
     <title>{{#if title}}{{title}}{{else}}Example{{/if}}</title>
 </head>
 <body>
-    <ul class="navUl">
-        <li class="navLi"><a {{#ifEquals active 1}}class="active"{{/ifEquals}} href="/">Kezdőlap</a></li>
-        <li class="navLi"><a {{#ifEquals active 2}}class="active"{{/ifEquals}} href="/work">Feladat</a></li>
-        <li class="navLi"><a {{#ifEquals active 3}}class="active"{{/ifEquals}} href="/contact">Kapcsolat</a></li>
-        <li class="navLi" style="float:right"><a class="highlited" href="/about">Rólunk</a></li>
-    </ul>
-    <div id="tartalom">
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="{{copyRight.name}} Logo" />
+        </div>
+        <ul>
+            <li><a {{#ifEquals active 1}}class="active"{{/ifEquals}} href="/">Kezdőlap</a></li>
+            <li><a {{#ifEquals active 2}}class="active"{{/ifEquals}} href="/work">Feladat</a></li>
+            <li><a {{#ifEquals active 3}}class="active"{{/ifEquals}} href="/contact">Kapcsolat</a></li>
+            <li style="float:right"><a class="highlited" href="/about">Rólunk</a></li>
+        </ul>
+    </header>
+    <div class="main">
         <h2>{{name}}</h2>
         {{{body}}}
     </div>
     <footer>
-        <p class="copyright">© {{copyRight.name}} {{copyRight.year}}</p>
+        <p>© {{copyRight.name}} {{copyRight.year}}</p>
     </footer>
 </body>
 </html>
