@@ -28,7 +28,7 @@ h1, h2 {
   	padding-bottom: 8px;
 }
 
-#navUl {
+.navUl {
     list-style-type: none;
     width: 626px;
     margin: auto;
@@ -39,11 +39,11 @@ h1, h2 {
     box-shadow: 8px 8px 5px 0px rgba(7, 31, 99, 0.75);
 }
   
-#navLi {
+.navLi {
     float: left;
 }
   
-#navLi a {
+.navLi a {
     display: block;
     color: white;
     text-align: center;
@@ -51,30 +51,65 @@ h1, h2 {
     text-decoration: none;
 }
   
-#navLi a:hover:not(.active) {
+.navLi a:hover:not(.active) {
     background-color:  rgba(33, 92, 202);
 }
 
-#navLi #active:hover {
+.navLi .active:hover {
   background-color:  rgb(36, 108, 241);
 }
   
-#active {
+.active {
     background-color: rgba(33, 92, 202);
-  }
+}
 
-a:link {
+.spoilerbutton {
+    display: inline-block;
+    margin-bottom: 5px;
+    background-color: rgba(33, 92, 202);
     color: white;
+    padding: 6px 10px;
+    margin: 8px 0;
+    border: 1px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.spoilerbutton:hover {
+    background-color: rgb(36, 108, 241);
+}
+
+.spoiler {
+    overflow: hidden;
 }
   
-a:visited {
+.spoiler>div {
+    margin-left: 0;
+    margin-right: 0;
+    overflow: hidden;
+    transition: all 1s ease;
+}
+
+.spoilerbutton[value="Mutat"]+.spoiler>div {
+    max-height: 0;
+}
+
+.spoilerbutton[value="Elrejt"]+.spoiler>div {
+    max-height: 250px;
+}
+
+.link:link {
     color: white;
 }
-  
-a:hover {
+
+.link:visited {
+    color: white;
+}
+
+.link:hover {
     color: deepskyblue;
 }
-  
-a:active {
+
+.link:active {
     color: deepskyblue;
 }

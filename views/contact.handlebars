@@ -1,7 +1,5 @@
-<h2>Kapcsolat</h2>
 <h4>Küldj nekünk üzenetet!</h4>
-
-<form action="/action_page.php" id="contactForm">
+<form {{!--action="/action_page.php"--}} id="contactForm">
     <label for="name">Név</label>
     <input type="text" id="name" name="name" placeholder="A neved.">
 
@@ -17,5 +15,13 @@
     <label for="comment">Üzenet</label>
     <textarea rows="4" cols="50" id="comment" name="comment" form="contactForm" placeholder="Írd be az üzenetet."></textarea>
 
-    <input type="submit" value="Elküld">
+    <input type="submit" value="Elküld" onclick="elkuld()">
 </form>
+<script>
+    function elkuld()
+    {
+        let nev = document.getElementById("name").value, email = document.getElementById("email").value, phone = document.getElementById("phone").value,
+            subject = document.getElementById("subject").value, comment = document.getElementById("comment").value;
+        alert(`Név: ${nev}\nEmail: ${email}\nTelefon: ${phone}\n\nTárgy: ${subject}\nÜzenet: ${comment}`);
+    }
+</script>

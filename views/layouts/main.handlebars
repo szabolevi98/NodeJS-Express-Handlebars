@@ -14,13 +14,14 @@
     {{/if}}
 </head>
 <body>
-    <ul id="navUl">
-        <li id="navLi"><a href="/">Kezdőlap</a></li>
-        <li id="navLi"><a href="/work">Feladat</a></li>
-        <li id="navLi"><a href="/contact">Kapcsolat</a></li>
-        <li id="navLi" style="float:right"><a id="active" href="/about">Rólunk</a></li>
+    <ul class="navUl">
+        <li class="navLi"><a href="/">Kezdőlap</a></li>
+        <li class="navLi"><a href="/work">Feladat</a></li>
+        <li class="navLi"><a href="/contact">Kapcsolat</a></li>
+        <li class="navLi" style="float:right"><a class="active" href="/about">Rólunk</a></li>
     </ul>
     <div id="tartalom">
+        <h2>{{name}}</h2>
         {{{body}}}
     </div>
     <footer>

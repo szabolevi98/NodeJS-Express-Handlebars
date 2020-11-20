@@ -23,8 +23,10 @@ const companyName = 'Example Name';
 const currentYear = new Date().getFullYear();
 
 app.get('/', (req, res) => {
+    const pageName = 'Lorem Ipsum';
     res.render('index', { 
-        title: companyName + ' - Lorem Ipsum',
+        name: pageName,
+        title: companyName + ' - ' + pageName,
         style: 'index.css',
         copyRight: {
             name: companyName,
@@ -34,8 +36,10 @@ app.get('/', (req, res) => {
 });
 
 app.get('/work', (req, res) => {
+    const pageName = 'Feladat';
     res.render('work', { 
-        title: companyName + ' - Házi feladat',
+        name: pageName,
+        title: companyName + ' - ' + pageName,
         style: 'work.css',
         copyRight: {
             name: companyName,
@@ -55,8 +59,10 @@ app.get('/work', (req, res) => {
 });
 
 app.get('/contact', (req, res) => {
+    const pageName = 'Kapcsolat'
     res.render('contact', { 
-        title: companyName + ' - Kapcsolat',
+        name: pageName,
+        title: companyName + ' - ' + pageName,
         style: 'contact.css',
         copyRight: {
             name: companyName,
@@ -66,8 +72,10 @@ app.get('/contact', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
+    const pageName = 'Rólunk';
     res.render('about', { 
-        title: companyName + ' - Rólunk',
+        name: pageName,
+        title: companyName + ' - ' + pageName,
         style: 'about.css',
         copyRight: {
             name: companyName,
