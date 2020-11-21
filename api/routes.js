@@ -1,10 +1,10 @@
 function routes() {
     const express = require('express');
     const router = express.Router();
-    const settings = require('./settings');
-    const htmlSettings = settings.htmlSettings;
-    const copyRightInfo = settings.copyRightInfo;
-    const pageNames = settings.pageNames;
+    const config = require('./routes.config');
+    const htmlSettings = config.htmlSettings;
+    const copyRightInfo = config.copyRightInfo;
+    const pageNames = config.pageNames;
     const lists = require('./lists');
 
     router.get('/', (req, res) => {

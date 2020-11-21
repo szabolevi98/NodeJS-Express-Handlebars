@@ -1,14 +1,3 @@
-const appSettings = {
-    extension: 'hbs', 
-    staticFolder: 'public',
-    viewFolder: 'views',
-    layoutsFolder: 'layouts',
-    partialsFolder: 'partials',
-    faviconFolder: 'images',
-    faviconName: 'favicon.ico',
-    defaultLayoutName: 'main'
-};
-
 const htmlSettings = {
     language : 'hu',
     characterSet : 'UTF-8',
@@ -30,7 +19,6 @@ const pageNames = {
 }
 
 module.exports = {
-    appSettings: appSettings,
     htmlSettings: htmlSettings,
     copyRightInfo: copyRightInfo,
     pageNames: pageNames
