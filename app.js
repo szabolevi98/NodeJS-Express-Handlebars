@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const exphbs = require('express-handlebars')
+const path = require('path');
 const favicon = require('serve-favicon'); 
 
 const hbs = exphbs.create({
@@ -8,6 +9,9 @@ const hbs = exphbs.create({
     helpers: {
         ifEquals: function(arg1, arg2, options) {
             return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+        },
+        ifNotEquals: function(arg1, arg2, options) {
+            return (arg1 != arg2) ? options.fn(this) : options.inverse(this);
         }
     }
 });
@@ -15,9 +19,8 @@ const hbs = exphbs.create({
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-app.use(express.static('public'));
-
-app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
 
 const companyName = 'Example Name';
 const currentYear = new Date().getFullYear();
@@ -86,6 +89,20 @@ app.get('/about', (req, res) => {
         }
     });
 });
+
+app.get('*', function(req, res){
+    const pageName = 'Hiba - 404';
+    res.render('error', { 
+        name: pageName,
+        title: companyName + ' - ' + pageName,
+        copyRight: {
+            name: companyName,
+            year: currentYear
+        },
+        route: JSON.stringify(req.originalUrl)
+    });
+});
+  
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
