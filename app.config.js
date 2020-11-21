@@ -6,7 +6,9 @@ const appSettings = {
     partialsFolder: 'partials',
     faviconFolder: 'images',
     faviconName: 'favicon.ico',
-    defaultLayoutName: 'main'
+    defaultLayoutName: 'main',
+    routesFolder: 'routes',
+    routesFileName: 'routes.js'
 };
 
 module.exports = appSettings;

@@ -24,7 +24,7 @@ app.engine(appSettings.extension, hbs.engine);
 app.set('view engine', appSettings.extension);
 app.use(express.static(path.join(__dirname, appSettings.staticFolder)));
 app.use(favicon(path.join(__dirname, appSettings.staticFolder, appSettings.faviconFolder, appSettings.faviconName)));
-app.use(require('./api/routes'));
+app.use(require('./' + path.join(appSettings.routesFolder,appSettings.routesFileName)));
   
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
