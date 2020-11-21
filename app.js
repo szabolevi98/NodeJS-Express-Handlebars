@@ -6,7 +6,7 @@ const favicon = require('serve-favicon');
 
 const appSettings = {
     extension: 'hbs', 
-    staticFolder: 'Public',
+    staticFolder: 'public',
     viewFolder: 'views',
     layoutsFolder: 'layouts',
     partialsFolder: 'partials',
