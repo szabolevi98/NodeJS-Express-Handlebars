@@ -5,16 +5,7 @@ function about() {
     const copyRightInfo = config.copyRightInfo;
     const pageNames = config.pageNames;
 
-    router.get('/about', (req, res) => {
-        res.render('about', { 
-            htmlSet: htmlSettings,
-            copyRight: copyRightInfo,
-            name: pageNames.about,
-            title: copyRightInfo.companyName + ' - ' + pageNames.about,
-            navNames: pageNames,
-            style: 'about.css'
-        });
-    });
+
 
     return router;
 }

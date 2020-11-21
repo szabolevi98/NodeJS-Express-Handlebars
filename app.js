@@ -3,13 +3,13 @@ const app = express();
 const expHbs = require('express-handlebars')
 const path = require('path');
 const favicon = require('serve-favicon'); 
-const appSettings = require('./app.config');
+const config = require('./app.config');
 
 const hbs = expHbs.create({
-    defaultLayout: appSettings.defaultLayoutName,
-    layoutsDir: path.join(__dirname, appSettings.viewFolder, appSettings.layoutsFolder),
-    partialsDir: path.join(__dirname, appSettings.viewFolder, appSettings.partialsFolder),
-    extname: `.${appSettings.extension}`,
+    defaultLayout: config.defaultLayoutName,
+    layoutsDir: path.join(__dirname, config.viewFolder, config.layoutsFolder),
+    partialsDir: path.join(__dirname, config.viewFolder, config.partialsFolder),
+    extname: `.${config.extension}`,
     helpers: {
         ifEquals: function(arg1, arg2, options) {
             return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
@@ -20,11 +20,11 @@ const hbs = expHbs.create({
     }
 });
 
-app.engine(appSettings.extension, hbs.engine);
-app.set('view engine', appSettings.extension);
-app.use(express.static(path.join(__dirname, appSettings.staticFolder)));
-app.use(favicon(path.join(__dirname, appSettings.staticFolder, appSettings.faviconFolder, appSettings.faviconName)));
-app.use(require('./' + path.join(appSettings.routesFolder,appSettings.routesFileName)));
+app.engine(config.extension, hbs.engine);
+app.set('view engine', config.extension);
+app.use(express.static(path.join(__dirname, config.staticFolder)));
+app.use(favicon(path.join(__dirname, config.staticFolder, config.faviconFolder, config.faviconName)));
+app.use(require('./' + path.join(config.routesFolder,config.routesFileName)));
   
 const port = process.env.PORT || 5000;
 app.listen(port, () => {

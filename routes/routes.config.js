@@ -1,4 +1,4 @@
-const htmlSettings = {
+const htmlConfig = {
     language : 'hu',
     characterSet : 'UTF-8',
     cssFolder: 'style',
@@ -19,7 +19,7 @@ const pageNames = {
 }
 
 module.exports = {
-    htmlSettings: htmlSettings,
+    htmlSettings: htmlConfig,
     copyRightInfo: copyRightInfo,
     pageNames: pageNames
 };

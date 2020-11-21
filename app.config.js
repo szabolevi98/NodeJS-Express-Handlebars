@@ -1,4 +1,4 @@
-const appSettings = {
+const appConfig = {
     extension: 'hbs', 
     staticFolder: 'public',
     viewFolder: 'views',
@@ -11,4 +11,4 @@ const appSettings = {
     routesFileName: 'routes.js'
 };
 
-module.exports = appSettings;
+module.exports = appConfig;
