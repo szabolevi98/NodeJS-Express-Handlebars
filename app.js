@@ -3,17 +3,12 @@ const app = express();
 const expHbs = require('express-handlebars')
 const path = require('path');
 const favicon = require('serve-favicon'); 
-
-const appSettings = {
-    extension: 'hbs', 
-    staticFolder: 'public',
-    viewFolder: 'views',
-    layoutsFolder: 'layouts',
-    partialsFolder: 'partials',
-    faviconFolder: 'images',
-    faviconName: 'favicon.ico',
-    defaultLayoutName: 'main'
-};
+const settings = require('./settings');
+const appSettings = settings.appSettings;
+const htmlSettings = settings.htmlSettings;
+const copyRightInfo = settings.copyRightInfo;
+const pageNames = settings.pageNames;
+const lists = require('./lists');
 
 const hbs = expHbs.create({
     defaultLayout: appSettings.defaultLayoutName,
@@ -36,26 +31,6 @@ app.set('view engine', appSettings.extension);
 app.use(express.static(path.join(__dirname, appSettings.staticFolder)));
 app.use(favicon(path.join(__dirname, appSettings.staticFolder, appSettings.faviconFolder, appSettings.faviconName)));
 
-const htmlSettings = {
-    language : 'hu',
-    characterSet : 'UTF-8',
-    cssFolder: 'css',
-    imagesFolder: 'images'
-}
-
-const copyRightInfo = {
-    companyName : 'Példa Név',
-    currentYear : new Date().getFullYear()
-}
-
-const pageNames = {
-    index: 'Kezdőlap',
-    work: 'Feladat',
-    contact: 'Kapcsolat',
-    about: 'Rólunk',
-    error: 'Hiba - 404'
-}
-
 app.get('/', (req, res) => {
     res.render('index', { 
         htmlSet: htmlSettings,
@@ -77,16 +52,7 @@ app.get('/work', (req, res) => {
         style: 'work.css',
         navNames: pageNames,
         active: 2,
-        lists: [
-            {
-                items: [ 'item1', 'item2', 'item3' ],
-                elements: [ 'element1', 'element2', 'element3' ]
-            },
-            {
-                items: [ 'item4', 'item5', 'item6' ],
-                elements: [ 'element4', 'element5', 'element6' ]
-            }
-        ]
+        lists: work
     });
 });
 
