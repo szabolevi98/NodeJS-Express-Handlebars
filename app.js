@@ -1,11 +1,25 @@
 const express = require('express');
 const app = express();
-const exphbs = require('express-handlebars')
+const expHbs = require('express-handlebars')
 const path = require('path');
 const favicon = require('serve-favicon'); 
 
-const hbs = exphbs.create({
-    defaultLayout: 'main',
+const appSettings = {
+    extension: 'hbs', 
+    staticFolder: 'Public',
+    viewFolder: 'views',
+    layoutsFolder: 'layouts',
+    partialsFolder: 'partials',
+    faviconFolder: 'images',
+    faviconName: 'favicon.ico',
+    defaultLayoutName: 'main'
+};
+
+const hbs = expHbs.create({
+    defaultLayout: appSettings.defaultLayoutName,
+    layoutsDir: path.join(__dirname, appSettings.viewFolder, appSettings.layoutsFolder),
+    partialsDir: path.join(__dirname, appSettings.viewFolder, appSettings.partialsFolder),
+    extname: `.${appSettings.extension}`,
     helpers: {
         ifEquals: function(arg1, arg2, options) {
             return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
@@ -16,39 +30,52 @@ const hbs = exphbs.create({
     }
 });
 
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
+app.engine(appSettings.extension, hbs.engine);
+app.set('view engine', appSettings.extension);
 
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
+app.use(express.static(path.join(__dirname, appSettings.staticFolder)));
+app.use(favicon(path.join(__dirname, appSettings.staticFolder, appSettings.faviconFolder, appSettings.faviconName)));
 
-const companyName = 'Example Name';
-const currentYear = new Date().getFullYear();
+const htmlSettings = {
+    language : 'hu',
+    characterSet : 'UTF-8',
+    cssFolder: 'css',
+    imagesFolder: 'images'
+}
+
+const copyRightInfo = {
+    companyName : 'Példa Név',
+    currentYear : new Date().getFullYear()
+}
+
+const pageNames = {
+    index: 'Kezdőlap',
+    work: 'Feladat',
+    contact: 'Kapcsolat',
+    about: 'Rólunk',
+    error: 'Hiba - 404'
+}
 
 app.get('/', (req, res) => {
-    const pageName = 'Lorem Ipsum';
     res.render('index', { 
-        name: pageName,
-        title: companyName + ' - ' + pageName,
+        htmlSet: htmlSettings,
+        copyRight: copyRightInfo,
+        name: pageNames.index,
+        title: copyRightInfo.companyName + ' - ' + pageNames.index,
         style: 'index.css',
-        copyRight: {
-            name: companyName,
-            year: currentYear
-        },
+        navNames: pageNames,
         active: 1
     });
 });
 
 app.get('/work', (req, res) => {
-    const pageName = 'Feladat';
     res.render('work', { 
-        name: pageName,
-        title: companyName + ' - ' + pageName,
+        htmlSet: htmlSettings,
+        copyRight: copyRightInfo,
+        name: pageNames.work,
+        title: copyRightInfo.companyName + ' - ' + pageNames.work,
         style: 'work.css',
-        copyRight: {
-            name: companyName,
-            year: currentYear
-        },
+        navNames: pageNames,
         active: 2,
         lists: [
             {
@@ -64,41 +91,35 @@ app.get('/work', (req, res) => {
 });
 
 app.get('/contact', (req, res) => {
-    const pageName = 'Kapcsolat'
     res.render('contact', { 
-        name: pageName,
-        title: companyName + ' - ' + pageName,
+        htmlSet: htmlSettings,
+        copyRight: copyRightInfo,
+        name: pageNames.contact,
+        title: copyRightInfo.companyName + ' - ' + pageNames.contact,
         style: 'contact.css',
-        copyRight: {
-            name: companyName,
-            year: currentYear
-        },
+        navNames: pageNames,
         active: 3
     });
 });
 
 app.get('/about', (req, res) => {
-    const pageName = 'Rólunk';
     res.render('about', { 
-        name: pageName,
-        title: companyName + ' - ' + pageName,
-        style: 'about.css',
-        copyRight: {
-            name: companyName,
-            year: currentYear
-        }
+        htmlSet: htmlSettings,
+        copyRight: copyRightInfo,
+        name: pageNames.about,
+        title: copyRightInfo.companyName + ' - ' + pageNames.about,
+        navNames: pageNames,
+        style: 'about.css'
     });
 });
 
 app.get('*', function(req, res){
-    const pageName = 'Hiba - 404';
     res.render('error', { 
-        name: pageName,
-        title: companyName + ' - ' + pageName,
-        copyRight: {
-            name: companyName,
-            year: currentYear
-        },
+        htmlSet: htmlSettings,
+        copyRight: copyRightInfo,
+        name: pageNames.error,
+        title: copyRightInfo.companyName + ' - ' + pageNames.error,
+        navNames: pageNames,
         route: JSON.stringify(req.originalUrl)
     });
 });
