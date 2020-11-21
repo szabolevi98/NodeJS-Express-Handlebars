@@ -1,0 +1,33 @@
+input[type=text], input[type=email], input[type=phone], textarea {
+    width: 100%;
+    padding: 8px 14px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+  
+input[type=submit] {
+    width: 100%;
+    background-color:rgb(30, 81, 177);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0 0 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+input[type=submit]:hover {
+    background-color:rgb(24, 69, 153);
+}
+
+label {
+    font-weight: bold;
+}
+
+textarea {
+    max-width: 100%;
+    min-width: 100%;
+}

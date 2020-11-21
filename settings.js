@@ -12,7 +12,7 @@ const appSettings = {
 const htmlSettings = {
     language : 'hu',
     characterSet : 'UTF-8',
-    cssFolder: 'css',
+    cssFolder: 'style',
     imagesFolder: 'images'
 }
 

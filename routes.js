@@ -1,17 +1,72 @@
-module.exports = (function() {
-    var express = require('express');
-    var router = express.Router();
+function routes() {
+    const express = require('express');
+    const router = express.Router();
+    const settings = require('./settings');
+    const htmlSettings = settings.htmlSettings;
+    const copyRightInfo = settings.copyRightInfo;
+    const pageNames = settings.pageNames;
+    const lists = require('./lists');
 
-    router.get("/:id", function (request, response, next) {
-        request.body.id = request.params["id"];
-        // Do something ...
+    router.get('/', (req, res) => {
+        res.render('index', { 
+            htmlSet: htmlSettings,
+            copyRight: copyRightInfo,
+            name: pageNames.index,
+            title: copyRightInfo.companyName + ' - ' + pageNames.index,
+            style: 'index.css',
+            navNames: pageNames,
+            active: 1
+        });
     });
-
-    router.post("/someRoute", function (request, response, next) {
-        // Do something ...
+    
+    router.get('/work', (req, res) => {
+        res.render('work', { 
+            htmlSet: htmlSettings,
+            copyRight: copyRightInfo,
+            name: pageNames.work,
+            title: copyRightInfo.companyName + ' - ' + pageNames.work,
+            style: 'work.css',
+            navNames: pageNames,
+            active: 2,
+            lists: lists
+        });
     });
-
-    // And so on ...
+    
+    router.get('/contact', (req, res) => {
+        res.render('contact', { 
+            htmlSet: htmlSettings,
+            copyRight: copyRightInfo,
+            name: pageNames.contact,
+            title: copyRightInfo.companyName + ' - ' + pageNames.contact,
+            style: 'contact.css',
+            navNames: pageNames,
+            active: 3
+        });
+    });
+    
+    router.get('/about', (req, res) => {
+        res.render('about', { 
+            htmlSet: htmlSettings,
+            copyRight: copyRightInfo,
+            name: pageNames.about,
+            title: copyRightInfo.companyName + ' - ' + pageNames.about,
+            navNames: pageNames,
+            style: 'about.css'
+        });
+    });
+    
+    router.get('*', function(req, res){
+        res.render('error', { 
+            htmlSet: htmlSettings,
+            copyRight: copyRightInfo,
+            name: pageNames.error,
+            title: copyRightInfo.companyName + ' - ' + pageNames.error,
+            navNames: pageNames,
+            route: JSON.stringify(req.originalUrl)
+        });
+    });
 
     return router;
-})();
+}
+
+module.exports = routes();
