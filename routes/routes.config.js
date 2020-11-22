@@ -1,13 +1,16 @@
 const htmlConfig = {
-    language : 'hu',
-    characterSet : 'UTF-8',
+    language: 'hu',
+    characterSet: 'UTF-8',
     cssFolder: 'style',
     imagesFolder: 'images'
 }
 
 const copyRightInfo = {
-    companyName : 'Példa Név',
-    currentYear : new Date().getFullYear()
+    name: 'Példa Név',
+    address: '6724, Szeged',
+    phone: '+36123456789',
+    email: 'info@pelda.hu',
+    year: new Date().getFullYear()
 }
 
 const pageNames = {
