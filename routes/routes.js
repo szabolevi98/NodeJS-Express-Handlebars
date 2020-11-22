@@ -10,10 +10,10 @@ function routes() {
         res.render('index', { 
             htmlSet: htmlSettings,
             copyRight: copyRightInfo,
+            navNames: pageNames,
             name: pageNames.index,
             title: copyRightInfo.companyName + ' - ' + pageNames.index,
             style: 'index.css',
-            navNames: pageNames,
             active: 1
         });
     });
@@ -35,10 +35,10 @@ function routes() {
         res.render('contact', { 
             htmlSet: htmlSettings,
             copyRight: copyRightInfo,
+            navNames: pageNames,
             name: pageNames.contact,
             title: copyRightInfo.companyName + ' - ' + pageNames.contact,
             style: 'contact.css',
-            navNames: pageNames,
             active: 3
         });
     });
@@ -47,9 +47,9 @@ function routes() {
         res.render('about', { 
             htmlSet: htmlSettings,
             copyRight: copyRightInfo,
+            navNames: pageNames,
             name: pageNames.about,
             title: copyRightInfo.companyName + ' - ' + pageNames.about,
-            navNames: pageNames,
             style: 'about.css'
         });
     });
@@ -58,9 +58,9 @@ function routes() {
         res.render('error', { 
             htmlSet: htmlSettings,
             copyRight: copyRightInfo,
+            navNames: pageNames,
             name: pageNames.error,
             title: copyRightInfo.companyName + ' - ' + pageNames.error,
-            navNames: pageNames,
             route: JSON.stringify(req.originalUrl)
         });
     });

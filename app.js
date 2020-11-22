@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, config.staticFolder)));
 app.use(favicon(path.join(__dirname, config.staticFolder, config.faviconFolder, config.faviconName)));
 app.use(require('./' + path.join(config.routesFolder,config.routesFileName)));
   
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || config.port;
 app.listen(port, () => {
     console.log('Server is starting at port: ' + port)
 });

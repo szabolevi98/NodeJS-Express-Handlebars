@@ -1,4 +1,5 @@
 const appConfig = {
+    port: 5000,
     extension: 'hbs', 
     staticFolder: 'public',
     viewFolder: 'views',
