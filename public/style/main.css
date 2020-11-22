@@ -1,6 +1,7 @@
 :root {
     --mainWidth: 35%;
-    --mainWidtMin: 626px;
+    --mainWidtMin: 630px;
+    --mainWidtMax: 1255px;
     --mainBlue: 33, 92, 202;
     --mainBlueHover: 36, 108, 241;
     --mainBlueActive: 30, 79, 172;
@@ -31,6 +32,7 @@ body {
 header {
     width: var(--mainWidth);
     min-width: var(--mainWidtMin);
+    max-width: var(--mainWidtMax);
     margin: auto;
     margin-top: 40px;
 }
@@ -100,6 +102,7 @@ header li .highlited:active {
     margin-top: 16px;
     width: calc(var(--mainWidth) - 50px);
     min-width: calc(var(--mainWidtMin) - 50px);
+    max-width: calc(var(--mainWidtMax) - 50px);
     padding: 22px 25px 22px 25px;
 }
 
@@ -115,6 +118,7 @@ footer {
     margin: auto;
     width: var(--mainWidth);
     min-width: var(--mainWidtMin);
+    max-width: var(--mainWidtMax);
     text-align: center;
     text-shadow: 3px 3px 5px black;
 }
