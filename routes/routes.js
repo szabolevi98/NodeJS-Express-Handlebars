@@ -14,7 +14,7 @@ function routes() {
             copyRight: copyRightInfo,
             navNames: pageNames,
             name: pageNames.index,
-            title: copyRightInfo.name + ' - ' + pageNames.index,
+            title: pageNames.index + ' - ' + copyRightInfo.name,
             style: 'index.css'
         });
     });
@@ -25,7 +25,7 @@ function routes() {
             copyRight: copyRightInfo,
             navNames: pageNames,
             name: pageNames.work,
-            title: copyRightInfo.name + ' - ' + pageNames.work,
+            title: pageNames.work + ' - ' + copyRightInfo.name,
             style: 'work.css',
             lists: lists
         });
@@ -37,7 +37,7 @@ function routes() {
             copyRight: copyRightInfo,
             navNames: pageNames,
             name: pageNames.contact,
-            title: copyRightInfo.name + ' - ' + pageNames.contact,
+            title: pageNames.contact + ' - ' + copyRightInfo.name,
             style: 'contact.css'
         });
     });
@@ -48,7 +48,7 @@ function routes() {
             copyRight: copyRightInfo,
             navNames: pageNames,
             name: pageNames.about,
-            title: copyRightInfo.name + ' - ' + pageNames.about,
+            title: pageNames.about + ' - ' + copyRightInfo.name,
             style: 'about.css'
         });
     });
@@ -59,7 +59,7 @@ function routes() {
             copyRight: copyRightInfo,
             navNames: pageNames,
             name: pageNames.error,
-            title: copyRightInfo.name + ' - ' + pageNames.error,
+            title: pageNames.error + ' - ' + copyRightInfo.name,
             route: JSON.stringify(req.originalUrl)
         });
     });

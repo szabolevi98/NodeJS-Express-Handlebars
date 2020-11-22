@@ -18,6 +18,7 @@ const pageNames = {
     work: 'Feladat',
     contact: 'Kapcsolat',
     about: 'Rólunk',
+    highlited: 'GitHub',
     error: 'Hiba - 404'
 }
 
