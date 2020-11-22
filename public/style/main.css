@@ -6,17 +6,27 @@
     --mainBlueActive: 30, 79, 172;
     --mainBlueActiveButton: 27, 68, 143;
     --mainBlueMiddlePage: 0, 191, 255;
+    --mainBlueBackground: 13, 153, 235;
     --mainShadow: 7, 31, 99, 0.75;
     --mainNavColor: 51, 51, 51;
     --mainNavSelectedColor: 72, 72, 72;
 }
 
+
 body {
+    background-color: rgb(var(--mainBlueBackground));
     background-image: linear-gradient(to right, rgb(var(--mainBlue)), rgb(var(--mainBlueMiddlePage)), rgb(var(--mainBlue)));
     background-repeat: no-repeat;
     background-attachment: fixed;
     color:white;
     text-align: justify;
+}
+
+
+@media only screen and (max-width: 800px) {
+    body {
+        background-image: none;
+    }
 }
 
 header {
