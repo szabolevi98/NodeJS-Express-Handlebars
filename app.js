@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, config.staticFolder)));
 app.use(favicon(path.join(__dirname, config.staticFolder, config.faviconFolder, config.faviconName)));
 
 //Routes (external)
-const routes = require('./' + path.join(config.routesFolder,config.routesFileName));
+const routes = require('./' + path.join(config.routesFolder, config.routesFileName));
 app.use(routes);
 
 //Server start
