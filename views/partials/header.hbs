@@ -2,8 +2,8 @@
     <img src="{{htmlSet.imagesFolder}}/logo.png" alt="{{copyRight.name}} Logo" />
 </div>
 <ul>
-    <li><a {{#ifEquals active 1}}class="active"{{/ifEquals}} href="/">Kezdőlap</a></li>
-    <li><a {{#ifEquals active 2}}class="active"{{/ifEquals}} href="/work">Feladat</a></li>
-    <li><a {{#ifEquals active 3}}class="active"{{/ifEquals}} href="/contact">Kapcsolat</a></li>
-    <li style="float:right"><a class="highlited" href="/about">Rólunk</a></li>
+    <li><a {{#ifEquals name navNames.index}}class="active"{{/ifEquals}} href="/">{{navNames.index}}</a></li>
+    <li><a {{#ifEquals name navNames.work}}class="active"{{/ifEquals}} href="/work">{{navNames.work}}</a></li>
+    <li><a {{#ifEquals name navNames.contact}}class="active"{{/ifEquals}} href="/contact">{{navNames.contact}}</a></li>
+    <li style="float:right"><a class="highlited" href="/about">{{navNames.about}}</a></li>
 </ul>

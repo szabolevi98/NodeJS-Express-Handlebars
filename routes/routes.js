@@ -1,4 +1,5 @@
 function routes() {
+    //Dependencies
     const router = require('express').Router();
     const config = require('./routes.config');
     const htmlSettings = config.htmlSettings;
@@ -6,6 +7,7 @@ function routes() {
     const pageNames = config.pageNames;
     const lists = require('./lists');
 
+    //Routes
     router.get('/', (req, res) => {
         res.render('index', { 
             htmlSet: htmlSettings,
@@ -13,8 +15,7 @@ function routes() {
             navNames: pageNames,
             name: pageNames.index,
             title: copyRightInfo.companyName + ' - ' + pageNames.index,
-            style: 'index.css',
-            active: 1
+            style: 'index.css'
         });
     });
 
@@ -22,11 +23,10 @@ function routes() {
         res.render('work', { 
             htmlSet: htmlSettings,
             copyRight: copyRightInfo,
+            navNames: pageNames,
             name: pageNames.work,
             title: copyRightInfo.companyName + ' - ' + pageNames.work,
             style: 'work.css',
-            navNames: pageNames,
-            active: 2,
             lists: lists
         });
     });
@@ -38,8 +38,7 @@ function routes() {
             navNames: pageNames,
             name: pageNames.contact,
             title: copyRightInfo.companyName + ' - ' + pageNames.contact,
-            style: 'contact.css',
-            active: 3
+            style: 'contact.css'
         });
     });
 

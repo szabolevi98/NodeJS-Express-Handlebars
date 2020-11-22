@@ -1,3 +1,4 @@
+//Dependencies
 const express = require('express');
 const app = express();
 const expHbs = require('express-handlebars')
@@ -5,6 +6,7 @@ const path = require('path');
 const favicon = require('serve-favicon'); 
 const config = require('./app.config');
 
+//Handlebars
 const hbs = expHbs.create({
     defaultLayout: config.defaultLayoutName,
     layoutsDir: path.join(__dirname, config.viewFolder, config.layoutsFolder),
@@ -20,12 +22,17 @@ const hbs = expHbs.create({
     }
 });
 
+//App config
 app.engine(config.extension, hbs.engine);
 app.set('view engine', config.extension);
 app.use(express.static(path.join(__dirname, config.staticFolder)));
 app.use(favicon(path.join(__dirname, config.staticFolder, config.faviconFolder, config.faviconName)));
-app.use(require('./' + path.join(config.routesFolder,config.routesFileName)));
-  
+
+//Routes (external)
+const routes = require('./' + path.join(config.routesFolder,config.routesFileName));
+app.use(routes);
+
+//Server start
 const port = process.env.PORT || config.port;
 app.listen(port, () => {
     console.log('Server is starting at port: ' + port)
