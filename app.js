@@ -3,7 +3,6 @@ const express = require('express');
 const app = express();
 const expHbs = require('express-handlebars')
 const path = require('path');
-const favicon = require('serve-favicon'); 
 const config = require('./app.config');
 
 //Handlebars
@@ -26,7 +25,6 @@ const hbs = expHbs.create({
 app.engine(config.extension, hbs.engine);
 app.set('view engine', config.extension);
 app.use(express.static(path.join(__dirname, config.staticFolder)));
-app.use(favicon(path.join(__dirname, config.staticFolder, config.faviconFolder, config.faviconName)));
 
 //Routes (external)
 const routes = require('./' + path.join(config.routesFolder, config.routesFileName));
