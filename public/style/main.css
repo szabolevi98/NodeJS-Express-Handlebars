@@ -15,6 +15,7 @@
     --mainNavColor: 51, 51, 51;
     --mainNavSelectedColor: 72, 72, 72;
     --mainFontColor: 255, 255, 255;
+    --logo: url("../images/logo_blue.png");
 }
 
 .theme-green {
@@ -28,6 +29,7 @@
     --mainNavColor: 51, 51, 51;
     --mainNavSelectedColor: 72, 72, 72;
     --mainFontColor: 255, 255, 255;
+    --logo: url("../images/logo_green.png");
 }
 
 .theme-purple {
@@ -41,6 +43,7 @@
     --mainNavColor: 51, 51, 51;
     --mainNavSelectedColor: 71, 71, 71;
     --mainFontColor: 255, 255, 255;
+    --logo: url("../images/logo_purple.png");
 }
 
 body {
@@ -77,6 +80,7 @@ header {
     margin: auto;
     height: 85px;
     width: auto;
+    content: var(--logo);
 }
 
 header ul {
