@@ -19,9 +19,9 @@
 
 .theme-green {
     --mainColor: 26, 146, 26;
-    --mainColorHover: 33, 185, 33;
-    --mainColorActive: 7, 134, 26;
-    --mainColorActiveButton: 22, 114, 22;
+    --mainColorHover: 30, 170, 30;
+    --mainColorActive: 7, 126, 25;
+    --mainColorActiveButton: 19, 102, 19;
     --mainColorMiddlePage: 0, 240, 0;
     --mainColorBackground: 12, 209, 12;
     --mainShadow: 5, 58, 5;
