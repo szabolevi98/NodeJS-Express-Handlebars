@@ -1,7 +1,7 @@
 :root {
     --mainWidth: 35%;
-    --mainWidtMin: 630px;
-    --mainWidtMax: 1255px;
+    --mainWidthMin: 630px;
+    --mainWidthMax: 1255px;
 }
 
 .theme-blue {
@@ -63,8 +63,8 @@ body {
 
 header {
     width: var(--mainWidth);
-    min-width: var(--mainWidtMin);
-    max-width: var(--mainWidtMax);
+    min-width: var(--mainWidthMin);
+    max-width: var(--mainWidthMax);
     margin: auto;
     margin-top: 40px;
 }
@@ -134,8 +134,8 @@ header li .highlited:active {
     margin: auto;
     margin-top: 16px;
     width: calc(var(--mainWidth) - 50px);
-    min-width: calc(var(--mainWidtMin) - 50px);
-    max-width: calc(var(--mainWidtMax) - 50px);
+    min-width: calc(var(--mainWidthMin) - 50px);
+    max-width: calc(var(--mainWidthMax) - 50px);
     padding: 22px 25px 22px 25px;
 }
 
@@ -174,8 +174,8 @@ header li .highlited:active {
 footer {
     margin: auto;
     width: var(--mainWidth);
-    min-width: var(--mainWidtMin);
-    max-width: var(--mainWidtMax);
+    min-width: var(--mainWidthMin);
+    max-width: var(--mainWidthMax);
     text-align: center;
     text-shadow: 3px 3px 5px black;
 }
