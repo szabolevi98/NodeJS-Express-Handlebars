@@ -1,6 +1,6 @@
 function setTheme(themeName) {
     let btns = document.getElementsByClassName('colorSwitchBtn');
-    for (var i = 0; i < btns.length; i++) {
+    for (let i = 0; i < btns.length; i++) {
         btns[i].classList.remove("colorSwitchBtnActive");
     }
     let link = document.querySelector("link[rel*='icon']") || document.createElement('link');
