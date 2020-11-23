@@ -123,6 +123,10 @@ footer {
     text-shadow: 3px 3px 5px black;
 }
 
+footer p {
+    margin-top: 14px;
+}
+
 h1, h2 {
     text-shadow: 3px 3px 5px rgba(var(--mainShadow));
 }
@@ -185,18 +189,22 @@ input[type=text], input[type=email], input[type=phone], textarea {
     max-height: 200px;
 }
 
-.main a:link {
+.main a:link, footer a:link {
     color: rgb(var(--mainFontColor));
 }
   
-.main a:visited {
+.main a:visited, footer a:visited {
     color: rgb(var(--mainFontColor));
+}
+
+footer a:link {
+    text-decoration: none;
 }
   
 .main a:hover {
-    color: var(--mainBlueMiddlePage);
+    color: rgb(var(--mainBlueMiddlePage));
 }
   
 .main a:active {
-    color: var(--mainBlueMiddlePage);
+    color: rgb(var(--mainBlueMiddlePage));
 }
