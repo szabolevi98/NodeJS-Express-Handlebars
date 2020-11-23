@@ -2,6 +2,7 @@ const htmlConfig = {
     language: 'hu',
     characterSet: 'UTF-8',
     cssFolder: 'style',
+    scriptFolder: 'script',
     imagesFolder: 'images'
 }
 

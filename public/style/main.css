@@ -2,28 +2,57 @@
     --mainWidth: 35%;
     --mainWidtMin: 630px;
     --mainWidtMax: 1255px;
-    --mainBlue: 33, 92, 202;
-    --mainBlueHover: 36, 108, 241;
-    --mainBlueActive: 30, 79, 172;
-    --mainBlueActiveButton: 27, 68, 143;
-    --mainBlueMiddlePage: 0, 191, 255;
-    --mainBlueBackground: 13, 153, 235;
-    --mainShadow: 7, 31, 99, 0.75;
+}
+
+.theme-blue {
+    --mainColor: 33, 92, 202;
+    --mainColorHover: 36, 108, 241;
+    --mainColorActive: 30, 79, 172;
+    --mainColorActiveButton: 27, 68, 143;
+    --mainColorMiddlePage: 0, 191, 255;
+    --mainColorBackground: 13, 153, 235;
+    --mainShadow: 7, 31, 99;
     --mainNavColor: 51, 51, 51;
     --mainNavSelectedColor: 72, 72, 72;
     --mainFontColor: 255, 255, 255;
 }
 
+.theme-green {
+    --mainColor: 26, 146, 26;
+    --mainColorHover: 33, 185, 33;
+    --mainColorActive: 7, 134, 26;
+    --mainColorActiveButton: 22, 114, 22;
+    --mainColorMiddlePage: 0, 240, 0;
+    --mainColorBackground: 12, 209, 12;
+    --mainShadow: 5, 58, 5;
+    --mainNavColor: 51, 51, 51;
+    --mainNavSelectedColor: 72, 72, 72;
+    --mainFontColor: 255, 255, 255;
+}
+
+.theme-purple {
+    --mainColor: 128, 26, 179;
+    --mainColorHover: 145, 30, 202;
+    --mainColorActive: 104, 26, 143;
+    --mainColorActiveButton: 86, 26, 122;
+    --mainColorMiddlePage: 200, 70, 240;
+    --mainColorBackground: 192, 12, 237;
+    --mainShadow: 71, 8, 94;
+    --mainNavColor: 51, 51, 51;
+    --mainNavSelectedColor: 71, 71, 71;
+    --mainFontColor: 255, 255, 255;
+}
+
 body {
-    background-color: rgb(var(--mainBlueBackground));
-    background-image: linear-gradient(to right, rgb(var(--mainBlue)), rgb(var(--mainBlueMiddlePage)), rgb(var(--mainBlue)));
+    background-color: rgb(var(--mainColorBackground));
+    background-image: linear-gradient(to right, rgb(var(--mainColor)), rgb(var(--mainColorMiddlePage)), rgb(var(--mainColor)));
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: rgb(var(--mainFontColor));
     text-align: justify;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 900px) {
     body {
         background-image: none;
     }
@@ -56,7 +85,7 @@ header ul {
     padding: 0;
     overflow: hidden;
     background-color: rgb(var(--mainNavColor));
-    box-shadow: 8px 8px 5px 0px rgba(var(--mainShadow));
+    box-shadow: 8px 8px 5px 0px rgba(var(--mainShadow), 0.75);
 }
 
 header li {
@@ -72,23 +101,23 @@ header li a {
 }
 
 header li a:hover:not(.highlited) {
-    background-color: rgb(var(--mainBlue));
+    background-color: rgb(var(--mainColor));
 }
 
 header li a:active:not(.highlited) {
-    background-color: rgb(var(--mainBlueActive));
+    background-color: rgb(var(--mainColorActive));
 }
 
 header li .highlited:hover {
-    background-color:  rgb(var(--mainBlueHover));
+    background-color:  rgb(var(--mainColorHover));
 }
 
 header li .highlited:active {
-    background-color: rgb(var(--mainBlueActive));
+    background-color: rgb(var(--mainColorActive));
 }
 
 .highlited {
-    background-color: rgb(var(--mainBlue));
+    background-color: rgb(var(--mainColor));
 }
 
 .active {
@@ -96,8 +125,8 @@ header li .highlited:active {
 }
 
 .main {
-    background-color: rgba(var(--mainBlue), 0.62);
-    box-shadow: 8px 8px 5px 0px rgba(var(--mainShadow));
+    background-color: rgba(var(--mainColor), 0.62);
+    box-shadow: 8px 8px 5px 0px rgba(var(--mainShadow), 0.75);
     margin: auto;
     margin-top: 16px;
     width: calc(var(--mainWidth) - 50px);
@@ -106,12 +135,36 @@ header li .highlited:active {
     padding: 22px 25px 22px 25px;
 }
 
-.main :last-child{
+.main :last-child {
     margin-bottom: 0px;
 }
 
-.main :first-child{
+.main :first-child {
     margin-top: 0px;
+}
+
+.main .title {
+    margin-bottom: 5px;
+}
+
+.main .title h2 {
+    display: inline-block;
+    margin: 0;
+}
+
+.colorSwitch {
+    margin-top: 0px;
+    float: right;
+}
+
+.colorSwitchBtn {
+    border-radius: 0px;
+    margin: 0px;
+    float: right;
+}
+
+.colorSwitchBtnActive {
+    background-color: rgb(var(--mainColorActiveButton));
 }
 
 footer {
@@ -139,11 +192,11 @@ table {
 table, td, th {
     border: 1px solid rgb(var(--mainFontColor));
     padding: 10px;
-    background-color: rgb(var(--mainBlue));
+    background-color: rgb(var(--mainColor));
 }
 
 button, input[type=button], input[type=submit] {
-    background-color: rgb(var(--mainBlueActive));
+    background-color: rgb(var(--mainColorActive));
     color: rgb(var(--mainFontColor));
     padding: 6px 10px;
     margin: 8px 0 8px 0;
@@ -154,11 +207,11 @@ button, input[type=button], input[type=submit] {
 }
 
 button:hover, input[type=button]:hover, input[type=submit]:hover {
-    background-color: rgb(var(--mainBlue));
+    background-color: rgb(var(--mainColor));
 }
 
-button:hover, input[type=button]:active, input[type=submit]:active {
-    background-color: rgb(var(--mainBlueActiveButton));
+button:active, input[type=button]:active, input[type=submit]:active {
+    background-color: rgb(var(--mainColorActiveButton));
 }
 
 input[type=text], input[type=email], input[type=phone], textarea {
@@ -202,9 +255,9 @@ footer a:link {
 }
   
 .main a:hover {
-    color: rgb(var(--mainBlueMiddlePage));
+    color: rgb(var(--mainColorMiddlePage));
 }
   
 .main a:active {
-    color: rgb(var(--mainBlueMiddlePage));
+    color: rgb(var(--mainColorMiddlePage));
 }

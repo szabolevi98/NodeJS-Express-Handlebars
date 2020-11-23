@@ -32,6 +32,11 @@ app.use(favicon(path.join(__dirname, config.staticFolder, config.faviconFolder, 
 const routes = require('./' + path.join(config.routesFolder, config.routesFileName));
 app.use(routes);
 
+function setTheme(themeName) {
+    localStorage.setItem('theme', themeName);
+    document.documentElement.className = themeName;
+}
+
 //Server start
 const port = process.env.PORT || config.port;
 app.listen(port, () => {

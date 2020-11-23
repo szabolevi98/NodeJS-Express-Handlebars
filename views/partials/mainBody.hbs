@@ -1,4 +1,12 @@
 <div class="main">
-    <h2>{{title}}</h2>
+    <div class="title">
+        <h2>{{title}}</h2>
+        <div class="colorSwitch">
+            <button class="colorSwitchBtn" id="switchPurple" onclick="setTheme('theme-purple')">Lila</button>
+            <button class="colorSwitchBtn" id="switchGreen" onclick="setTheme('theme-green')">Zöld</button>
+            <button class="colorSwitchBtn" id="switchBlue" onclick="setTheme('theme-blue')">Kék</button>
+        </div>
+    </div>
     {{{body}}}
 </div>
+<script src="{{htmlSet.scriptFolder}}/colorSwitch.js"></script>
