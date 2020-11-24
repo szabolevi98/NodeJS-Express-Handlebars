@@ -137,6 +137,7 @@ header li .highlited:active {
     min-width: calc(var(--mainWidthMin) - 50px);
     max-width: calc(var(--mainWidthMax) - 50px);
     padding: 22px 25px 22px 25px;
+    overflow: hidden;
 }
 
 .main :last-child {
