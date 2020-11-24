@@ -76,7 +76,15 @@ function routes() {
             navNames: pageNames,
             name: pageNames.messages,
             title: pageNames.messages + ' - ' + copyRightInfo.name,
-            messagesList: JSON.parse(fs.readFileSync(messageFile)),
+            messagesList: (() => {
+                if (htmlSettings.viewMessages && fs.existsSync(messageFile))
+                {
+                    return JSON.parse(fs.readFileSync(messageFile));
+                }
+                else {
+                    return false;
+                }
+            }),
             messageFileName: appConfig.messageFileName
         });
     });
@@ -102,24 +110,15 @@ function routes() {
         }
         if (objContact.name && objContact.email && objContact.phone && objContact.subject && objContact.comment)
         {
-            fs.readFile(messageFile, (err, data) => {
-                if (err && err.code === "ENOENT") {
-                    return fs.writeFile(messageFile, JSON.stringify([objContact], null, '\t'), error => console.error);
-                }
-                else if (err) {
-                    console.error(err);
-                }    
-                else {
-                    try {
-                        const fileData = JSON.parse(data);
-                        fileData.push(objContact);
-                        return fs.writeFile(messageFile, JSON.stringify(fileData, null, '\t'), error => console.error);
-                    } 
-                    catch(exception) {
-                        console.error(exception);
-                    }
-                }
-            });
+            if (fs.existsSync(messageFile))
+            {
+                const tempData = JSON.parse(fs.readFileSync(messageFile));
+                tempData.push(objContact);
+                fs.writeFileSync(messageFile, JSON.stringify(tempData, null, '\t'));
+            }
+            else {
+                fs.writeFileSync(messageFile, JSON.stringify([objContact], null, '\t'));
+            }
             res.render('contact', { 
                 htmlSet: htmlSettings,
                 copyRight: copyRightInfo,
@@ -148,7 +147,8 @@ function routes() {
                 title: pageNames.contact + ' - ' + copyRightInfo.name,
                 style: 'contact.css',
                 formError: true,
-                errorList: list
+                errorList: list,
+                formData: objContact
             });
         }
     });

@@ -1,3 +1,4 @@
+{{#if htmlSet.viewMessages}}
 {{#if messagesList}}
 <h4>A <a href="/{{messageFileName}}">{{messageFileName}}</a> fájlban található üzenetek:</h4>
 {{#each messagesList}}
@@ -7,7 +8,12 @@
 </div>
 <br />
 {{/each}}
-<span>Ez egy teszt oldal.</span>
+<span>Ez az oldal a routes.config.js fájlban kikapcsolható.</span>
 {{else}}
-<h4>A <a href="/{{messageFileName}}">{{messageFileName}}</a> fájlban nem található üzenet.</h4>
+<h4>A <a href="/{{messageFileName}}">{{messageFileName}}</a> fájlban nem található üzenet vagy a fájl nem létezik.</h4>
+<button onclick="window.location.href='/';">Vissza a főoldalra</button>
+{{/if}}
+{{else}}
+<h4>Az üzeneteket nem nézheted meg!</h4>
+<button onclick="window.location.href='/';">Vissza a főoldalra</button>
 {{/if}}

@@ -7,19 +7,19 @@
 <h4>Küldj nekünk üzenetet!</h4>
 <form action="/contact" method="post" id="contactForm">
     <label for="name">Név:</label>
-    <input type="text" id="name" name="name" placeholder="A neved.">
+    <input type="text" id="name" name="name" placeholder="A neved." {{#if formData}}value="{{formData.name}}"{{/if}}>
 
     <label for="email">Email:</label>
-    <input type="email" id="email" name="email" placeholder="Az e-mail címed.">
+    <input type="email" id="email" name="email" placeholder="Az e-mail címed." {{#if formData}}value="{{formData.email}}"{{/if}}>
 
     <label for="phone">Telefon:</label>
-    <input type="phone" id="phone" name="phone" placeholder="A telefonszámod.">
+    <input type="phone" id="phone" name="phone" placeholder="A telefonszámod." {{#if formData}}value="{{formData.phone}}"{{/if}}>
 
     <label for="subject">Tárgy:</label>
-    <input type="text" id="subject" name="subject" placeholder="Az üzenet tárgya.">
+    <input type="text" id="subject" name="subject" placeholder="Az üzenet tárgya." {{#if formData}}value="{{formData.subject}}"{{/if}}>
 
     <label for="comment">Üzenet:</label>
-    <textarea rows="4" cols="50" id="comment" name="comment" form="contactForm" placeholder="Írd be az üzenetet."></textarea>
+    <textarea rows="4" cols="50" id="comment" name="comment" form="contactForm" placeholder="Írd be az üzenetet.">{{#if formData}}{{formData.comment}}{{/if}}</textarea>
 
     {{#if formError}}
     <p style="text-align: left;"><b>Kérlek tölts ki minden mezőt!<br />Hiányző mezők: </b>

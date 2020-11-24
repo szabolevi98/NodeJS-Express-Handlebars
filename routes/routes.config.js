@@ -3,7 +3,8 @@ const htmlConfig = {
     characterSet: 'UTF-8',
     cssFolder: 'style',
     scriptFolder: 'script',
-    imagesFolder: 'images'
+    imagesFolder: 'images',
+    viewMessages: true
 }
 
 const copyRightInfo = {
