@@ -1,5 +1,11 @@
+{{#if formSuccess}}
+<h4>Az üzeneted sikeresen elküldve!</h4>
+<p><b>Név:</b> {{message.name}}<br /><b>Email:</b> {{message.email}}<br /><b>Telefon:</b> {{message.phone}}</p>
+<p><b>Tárgy:</b> {{message.subject}}<br /><b>Üzenet:</b> {{message.comment}}</p>
+<button onclick="window.location.href='/';">Vissza a főoldalra</button>
+{{else}}
 <h4>Küldj nekünk üzenetet!</h4>
-<form {{!--action="/action_page.php"--}} id="contactForm" onsubmit="return false">
+<form action="/contact" method="post" id="contactForm">
     <label for="name">Név:</label>
     <input type="text" id="name" name="name" placeholder="A neved.">
 
@@ -15,6 +21,13 @@
     <label for="comment">Üzenet:</label>
     <textarea rows="4" cols="50" id="comment" name="comment" form="contactForm" placeholder="Írd be az üzenetet."></textarea>
 
-    <input type="submit" value="Elküld" onclick="elkuld()">
+    {{#if formError}}
+    <p style="text-align: left;"><b>Kérlek tölts ki minden mezőt!<br />Hiányző mezők: </b>
+    {{#each errorList}}
+    {{this}}
+    {{/each}}
+    </p>
+    {{/if}}
+    <input type="submit" value="Küldés">
 </form>
-<script src="{{htmlSet.scriptFolder}}/form.js"></script>
+{{/if}}

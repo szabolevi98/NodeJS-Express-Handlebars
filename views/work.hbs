@@ -2,55 +2,82 @@
 Alap táblázatok: <input class="spoilerbutton" type="button" value="Mutat" onclick="this.value=this.value=='Mutat'?'Elrejt':'Mutat';">
 <div class="spoiler">
     <div>
-    {{#each lists as |xValue xKey|}}
-        <table><tr>
-        {{#each xValue/items as |yValue yKey|}}
-            <td>{{yValue}}</td>
-        {{/each}}
-        </tr>
-        <tr>
-        {{#each xValue/elements as |zValue zKey|}}
-            <td>{{zValue}}</td>
-        {{/each}}
-        </tr></table><br />
-    {{/each}}  
+        <table class="invisible">
+            <tr class="invisible">
+                <td class="invisible">
+                    <table><caption>Táblázat 1</caption>
+                        <tr>
+                        {{#each lists.0.items }}
+                            <td>{{this}}</td>
+                        {{/each}}
+                        </tr>
+                        <tr>
+                        {{#each lists.0.elements }}
+                            <td>{{this}}</td>
+                        {{/each}}
+                        </tr>
+                    </table>
+                </td>
+                <td class="invisible">
+                    <table><caption>Táblázat 2</caption>
+                        <tr>
+                        {{#each lists.1.items }}
+                            <td>{{this}}</td>
+                        {{/each}}
+                        </tr>
+                        <tr>
+                        {{#each lists.1.elements }}
+                            <td>{{this}}</td>
+                        {{/each}}
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
     </div>
 </div>
 <p>Megoldás első változat:</p>
 <table>
-{{#each lists as |xValue xKey|}}
-    {{#ifEquals xKey 0}}
     <tr>
-        {{#each xValue/items as |yValue yKey|}}
-        <td>{{yValue}}</td>
+    {{#each lists.0.items }}
+        <td>{{this}}</td>
+    {{/each}}
+    </tr>
+    <tr>
+        {{#each lists.1.elements }}
+        <td>{{this}}</td>
         {{/each}}
     </tr>
-    {{/ifEquals}}
-    {{#ifEquals xKey 1}}
-    <tr>
-        {{#each xValue/elements as |zValue zKey|}}
-        <td>{{zValue}}</td>
-        {{/each}}
-    </tr>
-    {{/ifEquals}}
-{{/each}}
 </table>
 <p>Megoldás második változat:</p>
 <table>
-{{#each lists as |xValue xKey|}}
-    {{#ifEquals xKey 0}}
     <tr>
-        {{#each xValue/elements as |yValue yKey|}}
-        <td>{{yValue}}</td>
-        {{/each}}
+    {{#each lists.0.elements }}
+        <td>{{this}}</td>
+    {{/each}}
     </tr>
-    {{/ifEquals}}
-    {{#ifEquals xKey 1}}
     <tr>
-        {{#each xValue/items as |zValue zKey|}}
-        <td>{{zValue}}</td>
-        {{/each}}
+    {{#each lists.1.items }}
+        <td>{{this}}</td>
+    {{/each}}
     </tr>
-    {{/ifEquals}}
-{{/each}}
+</table>
+<p>Bónusz: sorban minden érték</p>
+<table>
+    <tr>
+    {{#each lists.0.items }}
+        <td>{{this}}</td>
+    {{/each}}
+        {{#each lists.1.items }}
+        <td>{{this}}</td>
+    {{/each}}
+    </tr>
+    <tr>
+    {{#each lists.0.elements }}
+        <td>{{this}}</td>
+    {{/each}}
+        {{#each lists.1.elements }}
+        <td>{{this}}</td>
+    {{/each}}
+    </tr>
 </table>

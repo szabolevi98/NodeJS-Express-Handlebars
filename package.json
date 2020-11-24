@@ -1,21 +1,28 @@
 {
-  "name": "Express_Handlebars",
+  "name": "express_handlebars",
   "version": "1.0.0",
-  "description": "",
+  "description": "Live demo: https://nodejs-express-handlebars.herokuapp.com",
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "szabolevi98",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "express-handlebars": "^5.2.0",
-    "serve-favicon": "^2.5.0"
+    "express-handlebars": "^5.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szabolevi98/NodeJS-Express-Handlebars.git"
+  },
+  "bugs": {
+    "url": "https://github.com/szabolevi98/NodeJS-Express-Handlebars/issues"
+  },
+  "homepage": "https://github.com/szabolevi98/NodeJS-Express-Handlebars#readme"
 }

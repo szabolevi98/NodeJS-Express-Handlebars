@@ -1,0 +1,13 @@
+{{#if messagesList}}
+<h4>A <a href="/{{messageFileName}}">{{messageFileName}}</a> fájlban található üzenetek:</h4>
+{{#each messagesList}}
+<div class="messages">
+    <p><b>Név:</b> {{this.name}}<br /><b>Email:</b> {{this.email}}<br /><b>Telefon:</b> {{this.phone}}<br />
+    <b>Tárgy:</b> {{this.subject}}<br /><b>Üzenet:</b> {{this.comment}}</p>
+</div>
+<br />
+{{/each}}
+<span>Ez egy teszt oldal.</span>
+{{else}}
+<h4>A <a href="/{{messageFileName}}">{{messageFileName}}</a> fájlban nem található üzenet.</h4>
+{{/if}}

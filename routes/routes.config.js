@@ -18,6 +18,7 @@ const pageNames = {
     index: 'Kezdőlap',
     work: 'Feladat',
     contact: 'Kapcsolat',
+    messages: 'Üzenetek',
     about: 'Rólunk',
     highlited: 'GitHub',
     error: 'Hiba - 404'

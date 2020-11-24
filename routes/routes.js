@@ -1,11 +1,18 @@
 function routes() {
     //Dependencies
-    const router = require('express').Router();
+    const express = require('express');
+    const router = express.Router();
+    const path = require('path');
+    const fs = require('fs'); 
     const config = require('./routes.config');
+    const appConfig = require('./../app.config');
     const htmlSettings = config.htmlSettings;
     const copyRightInfo = config.copyRightInfo;
     const pageNames = config.pageNames;
-    const lists = require('./lists');
+    const messageFile = './' +  path.join(appConfig.staticFolder, appConfig.messageFileName);
+
+    //Router config
+    router.use(express.json());
 
     //Routes
     router.get('/', (req, res) => {
@@ -27,7 +34,16 @@ function routes() {
             name: pageNames.work,
             title: pageNames.work + ' - ' + copyRightInfo.name,
             style: 'work.css',
-            lists: lists
+            lists: [
+                {
+                    items: [ 'item1', 'item2', 'item3' ],
+                    elements: [ 'element1', 'element2', 'element3' ]
+                },
+                {
+                    items: [ 'item4', 'item5', 'item6' ],
+                    elements: [ 'element4', 'element5', 'element6' ]
+                }
+            ]
         });
     });
 
@@ -53,6 +69,18 @@ function routes() {
         });
     });
 
+    router.get('/messages', (req, res) => {
+        res.render('messages', { 
+            htmlSet: htmlSettings,
+            copyRight: copyRightInfo,
+            navNames: pageNames,
+            name: pageNames.messages,
+            title: pageNames.messages + ' - ' + copyRightInfo.name,
+            messagesList: JSON.parse(fs.readFileSync(messageFile)),
+            messageFileName: appConfig.messageFileName
+        });
+    });
+
     router.get('*', function(req, res){
         res.render('error', { 
             htmlSet: htmlSettings,
@@ -62,6 +90,67 @@ function routes() {
             title: pageNames.error + ' - ' + copyRightInfo.name,
             route: JSON.stringify(req.originalUrl)
         });
+    });
+   
+    router.post('/contact', express.urlencoded({extended: false}), function(req, res) {
+        const objContact = {
+            name: req.body.name,
+            email: req.body.email,
+            phone: req.body.phone,
+            subject: req.body.subject,
+            comment: req.body.comment
+        }
+        if (objContact.name && objContact.email && objContact.phone && objContact.subject && objContact.comment)
+        {
+            fs.readFile(messageFile, (err, data) => {
+                if (err && err.code === "ENOENT") {
+                    return fs.writeFile(messageFile, JSON.stringify([objContact], null, '\t'), error => console.error);
+                }
+                else if (err) {
+                    console.error(err);
+                }    
+                else {
+                    try {
+                        const fileData = JSON.parse(data);
+                        fileData.push(objContact);
+                        return fs.writeFile(messageFile, JSON.stringify(fileData, null, '\t'), error => console.error);
+                    } 
+                    catch(exception) {
+                        console.error(exception);
+                    }
+                }
+            });
+            res.render('contact', { 
+                htmlSet: htmlSettings,
+                copyRight: copyRightInfo,
+                navNames: pageNames,
+                name: pageNames.contact,
+                title: pageNames.contact + ' - ' + copyRightInfo.name,
+                style: 'contact.css',
+                formSuccess: true,
+                message: objContact,
+                messageFileName: appConfig.messageFileName
+            });
+        }
+        else
+        {
+            let list = [];
+            if (!objContact.name) list.push('Név');
+            if (!objContact.email) list.push('Email');
+            if (!objContact.phone) list.push('Telefon');
+            if (!objContact.subject) list.push('Tárgy');
+            if (!objContact.comment) list.push('Üzenet');
+            res.render('contact', { 
+                htmlSet: htmlSettings,
+                copyRight: copyRightInfo,
+                navNames: pageNames,
+                name: pageNames.contact,
+                title: pageNames.contact + ' - ' + copyRightInfo.name,
+                style: 'contact.css',
+                formError: true,
+                errorList: list
+            });
+        }
     });
 
     return router;

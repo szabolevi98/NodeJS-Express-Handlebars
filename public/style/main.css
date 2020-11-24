@@ -200,6 +200,17 @@ table, td, th {
     background-color: rgb(var(--mainColor));
 }
 
+.invisible
+{
+   border:none;
+}
+
+.messages {
+    background-color: rgba(var(--mainColorActive), 0.62);
+    overflow: hidden;
+    padding: 10px;
+}
+
 button, input[type=button], input[type=submit] {
     background-color: rgb(var(--mainColorActive));
     color: rgb(var(--mainFontColor));
