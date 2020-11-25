@@ -7,7 +7,7 @@ const htmlConfig = {
     viewMessages: true
 }
 
-const copyRightInfo = {
+const copyRightConfig = {
     name: 'Példa Név',
     address: '6724, Szeged',
     phone: '+36123456789',
@@ -15,7 +15,7 @@ const copyRightInfo = {
     year: new Date().getFullYear()
 }
 
-const pageNames = {
+const pageNamesConfig = {
     index: 'Kezdőlap',
     work: 'Feladat',
     contact: 'Kapcsolat',
@@ -27,6 +27,6 @@ const pageNames = {
 
 module.exports = {
     htmlSettings: htmlConfig,
-    copyRightInfo: copyRightInfo,
-    pageNames: pageNames
+    copyRightInfo: copyRightConfig,
+    pageNames: pageNamesConfig
 };
