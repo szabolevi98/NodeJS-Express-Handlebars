@@ -1,14 +1,9 @@
 //Dependencies
 const express = require('express');
 const router = express.Router();
-const fs = require('fs');
-const path = require('path');
 const config = require('./routes.config');
-const appConfig = require('./../app.config');
-const messageFile = './' +  path.join(appConfig.staticFolder, appConfig.messageFileName);
-
-//Router config
-router.use(express.json());
+const path = require('path');
+const messageModel = require(path.join(__dirname, '..','models','Message'));
 
 //Route contact
 router.route('/')
@@ -22,44 +17,43 @@ router.route('/')
         style: 'contact.css'
     });
 })
-.post(express.urlencoded({extended: false}), (req, res) => {
-    const objContact = {
+.post(express.urlencoded({extended: false}), async(req, res) => {
+    const messageObject = {
         name: req.body.name,
         email: req.body.email,
         phone: req.body.phone,
         subject: req.body.subject,
         comment: req.body.comment
-    }
-    if (objContact.name && objContact.email && objContact.phone && objContact.subject && objContact.comment)
+    };
+    if (messageObject.name && messageObject.email && messageObject.phone && messageObject.subject && messageObject.comment)
     {
-        if (fs.existsSync(messageFile))
-        {
-            const tempData = JSON.parse(fs.readFileSync(messageFile));
-            tempData.push(objContact);
-            fs.writeFileSync(messageFile, JSON.stringify(tempData, null, '\t'));
+        try {
+            const postMessage = new messageModel(messageObject);
+            await postMessage.save();
+            res.render('contact', { 
+                htmlSet: config.htmlSettings,
+                copyRight: config.copyRightInfo,
+                navNames: config.pageNames,
+                name: config.pageNames.contact,
+                title: config.pageNames.contact + ' - ' + config.copyRightInfo.name,
+                style: 'contact.css',
+                formSuccess: true,
+                message: messageObject,
+            });
+
+        } 
+        catch (err) {
+            res.send(`Error happened: ${err.message}`);
         }
-        else {
-            fs.writeFileSync(messageFile, JSON.stringify([objContact], null, '\t'));
-        }
-        res.render('contact', { 
-            htmlSet: config.htmlSettings,
-            copyRight: config.copyRightInfo,
-            navNames: config.pageNames,
-            name: config.pageNames.contact,
-            title: config.pageNames.contact + ' - ' + config.copyRightInfo.name,
-            style: 'contact.css',
-            formSuccess: true,
-            message: objContact,
-        });
     }
     else
     {
         let list = [];
-        if (!objContact.name) list.push('Név');
-        if (!objContact.email) list.push('Email');
-        if (!objContact.phone) list.push('Telefon');
-        if (!objContact.subject) list.push('Tárgy');
-        if (!objContact.comment) list.push('Üzenet');
+        if (!messageObject.name) list.push('Név');
+        if (!messageObject.email) list.push('Email');
+        if (!messageObject.phone) list.push('Telefon');
+        if (!messageObject.subject) list.push('Tárgy');
+        if (!messageObject.comment) list.push('Üzenet');
         res.render('contact', { 
             htmlSet: config.htmlSettings,
             copyRight: config.copyRightInfo,
@@ -69,7 +63,7 @@ router.route('/')
             style: 'contact.css',
             formError: true,
             errorList: list,
-            formData: objContact
+            formData: messageObject
         });
     }
 });

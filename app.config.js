@@ -7,8 +7,7 @@ const appConfig = {
     partialsFolder: 'partials',
     defaultLayoutName: 'main',
     routesFolder: 'routes',
-    routesFileName: 'routes.js',
-    messageFileName: 'messages.json'
+    routesFileName: 'routes.js'
 };
 
 module.exports = appConfig;
