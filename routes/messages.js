@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const config = require('./routes.config');
 const path = require('path');
-const messageModel = require(path.join(__dirname, '..','models','Message'));
+const messageModel = require(path.join(__dirname, '..', 'models', 'Message'));
 
 //Route messages
 router.route('/')
