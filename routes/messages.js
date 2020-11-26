@@ -14,21 +14,22 @@ router.route('/')
         navNames: config.pageNames,
         name: config.pageNames.messages,
         title: config.pageNames.messages + ' - ' + config.copyRightInfo.name,
+        style: 'messages.css',
         messagesList: await messageModel.find().lean()
     });
 })
 .post(express.urlencoded({extended: false}), async(req, res) => {
-    console.log(req.body._id);
-    if (req.body._id && (req.body.secretKey == process.env.secret_key))
+    if (req.body._id && (req.body.secretKey == process.env.DELETE_KEY))
     {
         try {
-            await messageModel.remove({ _id: req.body._id });
+            await messageModel.deleteOne({ _id: req.body._id });
             res.render('messages', { 
                 htmlSet: config.htmlSettings,
                 copyRight: config.copyRightInfo,
                 navNames: config.pageNames,
                 name: config.pageNames.messages,
                 title: config.pageNames.messages + ' - ' + config.copyRightInfo.name,
+                style: 'messages.css',
                 messagesList: await messageModel.find().lean(),
                 messageRemoved: true
             });
@@ -44,11 +45,11 @@ router.route('/')
             navNames: config.pageNames,
             name: config.pageNames.messages,
             title: config.pageNames.messages + ' - ' + config.copyRightInfo.name,
+            style: 'messages.css',
             messagesList: await messageModel.find().lean(),
             wrongSecretKey: true
         });
     }
 });
-
 
 module.exports = router;

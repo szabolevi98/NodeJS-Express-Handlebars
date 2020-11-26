@@ -2,10 +2,10 @@
 {{#if messagesList}}
 <h4>A adatbázisban található üzenetek:</h4>
 {{#if wrongSecretKey}}
-<h4>Hibás a titkos kód!</h4>
+<script>window.onload = function() { alert('Hibás a titkos kód!'); }</script>
 {{/if}}
 {{#if messageRemoved}}
-<h4>Üzenet törölve!</h4>
+<script>window.onload = function() { alert('Üzenet törölve!'); }</script>
 {{/if}}
 {{#each messagesList}}
 <div class="messages">
