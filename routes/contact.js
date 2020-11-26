@@ -43,7 +43,14 @@ router.route('/')
 
         } 
         catch (err) {
-            res.send(`Error happened: ${err.message}`);
+            res.render('error', { 
+                htmlSet: config.htmlSettings,
+                copyRight: config.copyRightInfo,
+                navNames: config.pageNames,
+                name: config.pageNames.error,
+                title: config.pageNames.error + ' - ' + config.copyRightInfo.name,
+                specificMessage: err.message
+            });
         }
     }
     else

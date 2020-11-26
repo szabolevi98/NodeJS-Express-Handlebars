@@ -22,7 +22,7 @@ const pageNamesConfig = {
     messages: 'Üzenetek',
     about: 'Rólunk',
     highlited: 'GitHub',
-    error: 'Hiba - 404'
+    error: 'Hiba'
 }
 
 module.exports = {
