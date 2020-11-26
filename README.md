@@ -7,6 +7,6 @@ Live demo: https://nodejs-express-handlebars.herokuapp.com
 Make a file named ".env" in the root directory with
 
 - `DB_CONNECTION = putHereTheMongoDBConnectionString`
-- `DELETE_KEY =  putHereSomePassword`
+- `DELETE_KEY =  putHereSomePasswordForDelete`
 
 inside or set the same `Config Vars` at Heroku's settings.
