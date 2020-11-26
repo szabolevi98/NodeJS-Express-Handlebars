@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, appConfig.staticFolder)));
 
 //Routes (external)
 const routes = require(path.join(__dirname, appConfig.routesFolder, appConfig.routesFileName));
-app.use(routes);
+app.use('/', routes);
 
 //Connect to MongoDB
 mongoose.connect(process.env.DB_CONNECTION, 
