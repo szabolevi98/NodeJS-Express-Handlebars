@@ -9,16 +9,16 @@
 {{/if}}
 {{#each messagesList}}
 <div class="messages">
-    <form action="/messages" method="post" id="deleteForm">
+    <form action="/messages" method="post" class="deleteForm">
             <p>
-                <input type="hidden" value="{{this._id}}" name="_id" id="_id" />
+                <input type="hidden" value="{{this._id}}" name="_id" class="_id" />
                 <b>Név:</b> {{this.name}}<br />
                 <b>Email:</b> {{this.email}}<br />
                 <b>Telefon:</b> {{this.phone}}<br />
                 <b>Tárgy:</b> {{this.subject}}<br />
                 <b>Üzenet:</b> {{this.comment}}<br />
                 <!--<b>Dátum:</b> {{this.date}}-->
-                <input type="text" name="secretKey" id="secretKey" placeholder="Titkos kód a törléshez" width="30px" /><input type="submit" value="Törlés" />
+                <input type="text" name="secretKey" class="secretKey" placeholder="Titkos kód a törléshez" width="30px" /><input type="submit" value="Törlés" />
             </p>
     </form>
 </div>
