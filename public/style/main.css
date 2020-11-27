@@ -230,7 +230,7 @@ button:active, input[type=button]:active, input[type=submit]:active {
     background-color: rgb(var(--mainColorActiveButton));
 }
 
-input[type=text], input[type=email], input[type=phone], textarea {
+input[type=text], input[type=email], input[type=phone], input[type=password], textarea {
     margin: 8px 0;
     padding: 4px 6px;
     display: inline-block;
