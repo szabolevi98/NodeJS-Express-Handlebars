@@ -4,7 +4,7 @@ const config = require('./routes.config');
 
 //Route error
 router.get('/', function(req, res) {
-    res.status(404).res.render('error', { 
+    res.render('error', { 
         htmlSet: config.htmlSettings,
         copyRight: config.copyRightInfo,
         navNames: config.pageNames,
