@@ -1,12 +1,12 @@
 # NodeJS-Express-Handlebars
 Live demo: https://nodejs-express-handlebars.herokuapp.com
 
-- `npm install`
-- `npm run dev`
+- `npm install` to install dependencies
+- `npm run dev` to start the app
 
-Make a file named ".env" in the root directory with
+Create a file named ".env" in the root directory with
 ```
-DB_CONNECTION = putHereTheMongoDBConnectionString
+DB_CONNECTION = putHereYourMongoDBConnectionString
 DELETE_KEY =  putHereSomePasswordForDelete
 ```
 inside or set the same `Config Vars` at Heroku's settings.
