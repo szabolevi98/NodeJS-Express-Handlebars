@@ -34,8 +34,15 @@ app.use('/', routes);
 
 //Connect to MongoDB
 mongoose.connect(process.env.DB_CONNECTION, 
-{ useNewUrlParser: true, useUnifiedTopology: true }, 
-() => console.log('Connecting to the database...')
+    { useNewUrlParser: true, useUnifiedTopology: true }, 
+    (err) => {
+      if (err) {
+          console.log('Unable to connect to the database:', err.message);
+      }
+      else {
+          console.log('Connected to database successfully!');
+      }
+    }
 );
 
 //Server start
