@@ -1,7 +1,7 @@
 //Dependencies
 const express = require('express');
 const app = express();
-const expHbs = require('express-handlebars')
+const expHbs = require('express-handlebars');
 const mongoose = require('mongoose');
 const path = require('path');
 const appConfig = require('./app.config');
