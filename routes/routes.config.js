@@ -4,7 +4,7 @@ const htmlConfig = {
     cssFolder: 'style',
     scriptFolder: 'script',
     imagesFolder: 'images',
-    viewMessages: true
+    viewMessages: false
 }
 
 const copyRightConfig = {
