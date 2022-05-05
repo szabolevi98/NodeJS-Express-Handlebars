@@ -1,5 +1,4 @@
 # NodeJS-Express-Handlebars
-Live demo: https://nodejs-express-handlebars.herokuapp.com
 
 - `npm install` to install dependencies
 - `npm run dev` to start the app
